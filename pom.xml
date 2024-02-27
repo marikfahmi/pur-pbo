@@ -1,0 +1,68 @@
+import java.util.Scanner;
+
+        public class SistemLoginLibrary {
+
+        private static final String ADMIN_USERNAME = "admin";
+        private static final String ADMIN_PASSWORD = "admin123";
+        private static final int PANJANG_NIM = 15;
+        private static final Scanner scanner = new Scanner(System.in);
+
+        public static void main(String[] args) {
+        int pilihan = 0;
+
+        while (pilihan != 3) {
+        tampilkanMenu();
+        pilihan = scanner.nextInt();
+
+        switch (pilihan) {
+        case 1:
+        loginMahasiswa();
+        break;
+        case 2:
+        loginAdmin();
+        break;
+        case 3:
+        System.out.println("Terima kasih telah menggunakan sistem login library!");
+        break;
+        default:
+        System.out.println("Pilihan tidak valid. Silahkan pilih 1, 2, atau 3.");
+        }
+        }
+        }
+
+        private static void tampilkanMenu() {
+        System.out.println("==== Sistem Login Library ====");
+        System.out.println("1. Login Mahasiswa");
+        System.out.println("2. Login Admin");
+        System.out.println("3. Keluar");
+        System.out.print("Pilih menu: ");
+        }
+
+        private static void loginMahasiswa() {
+        System.out.print("Masukkan NIM: ");
+        String nim = scanner.next();
+
+        if (nim.length() != PANJANG_NIM) {
+        System.out.println("Panjang NIM tidak valid. Harus 15 karakter.");
+        return;
+        }
+
+        // Validasi database untuk NIM dan tampilkan pesan sesuai hasil
+
+        System.out.println("Login berhasil!");
+        }
+
+        private static void loginAdmin() {
+        System.out.print("Masukkan Username: ");
+        String username = scanner.next();
+
+        System.out.print("Masukkan Password: ");
+        String password = scanner.next();
+
+        if (username.equals(ADMIN_USERNAME) && password.equals(ADMIN_PASSWORD)) {
+        System.out.println("Login Admin Berhasil!");
+        } else {
+        System.out.println("Login gagal. Username atau password salah!");
+        }
+        }
+        }
